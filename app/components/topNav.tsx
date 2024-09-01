@@ -5,12 +5,12 @@ import {
   useState,
 } from 'react';
 
-import SearchIcon from '@mui/icons-material/Search';
+import Image from 'next/image';
+import { ImGithub } from 'react-icons/im';
 
 export default function TopNav() {
     const [accountName, setAccountName] = useState("");
     const [examplePlaceHolder, setExamplePlaceHolder] = useState("Search for garen");
-    const [region, setRegion] = useState("br");	// Default region is Brazil
 
     useEffect(() => {
         const LeagueFamousChampions = [
@@ -45,7 +45,17 @@ export default function TopNav() {
 
     return (
         <div className="w-full flex gap-2 justify-center align-middle items-center p-5 border-b border-gray-700">
-            <div className='flex gap-10 text-center'>
+            <div className='grid grid-cols-3 text-center items-center align-middle w-full justify-between'>
+                <h1 className='flex items-center text-2xl'>
+                    <Image
+                        src='/logo.png'
+                        alt='logo'
+                        width={64}
+                        height={64}
+                        className='w-12'
+                    />
+                    Hextech
+                </h1>
                 <form action={handleSearch} method="get">
                     <input type="text" name="account_name" id="account_name" placeholder={examplePlaceHolder} required
                         className='text-black border-2 border-black rounded-lg p-2'
@@ -55,17 +65,17 @@ export default function TopNav() {
                             }
                         }
                     />
-                    {
-                        accountName && (
-                            <button
-                                className='bg-black text-white rounded-lg p-2'
-                                onClick={handleSearch}
-                            >
-                                <SearchIcon />
-                            </button>
-                        )
-                    }
                 </form>
+                <div className='flex gap-2 justify-end'>
+                    <a
+                        href='https://github.com/Jay-Frontera'
+                        target='_blank'
+                    >
+                        <ImGithub
+                            className='text-3xl w-12'
+                        />
+                    </a>
+                </div>
             </div>
         </div>
     );

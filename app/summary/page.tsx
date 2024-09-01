@@ -6,6 +6,11 @@ import {
 } from 'react';
 
 import axios from 'axios';
+import { BiSolidHide } from 'react-icons/bi';
+import {
+  FaEye,
+  FaStar,
+} from 'react-icons/fa';
 import {
   MdExpandLess,
   MdExpandMore,
@@ -32,6 +37,7 @@ export default function Summary() {
     const [possiblePerks, setPossiblePerksDisplayed] = useState(new Set<number>());
     const [perksDisplayed, setPerksDisplayed] = useState(new Set<number>());
     const [buildOrder, setBuildOrder] = useState([] as number[]);
+    const [showBuilds, setShowBuilds] = useState(false);
 
     useEffect(() => {
         let buildOrder = [] as number[];
@@ -147,14 +153,14 @@ export default function Summary() {
                                 <h1 className='text-6xl'>
                                     Loading {queryChampion} builds
                                 </h1>
-                                <CircularProgress color="secondary"/>
+                                <CircularProgress color="secondary" />
                             </div>
                         </div>
                     )
                 }
                 {
                     bestPlayerDatas.length > 0 && (
-                        <div className='h-full flex flex-col gap-5 items-center p-5'>
+                        <div className='h-full flex flex-col gap-5 items-center pt-5'>
                             <div className='flex items-center flex-col gap-2 p-3 border rounded-md bg-gray-900 border-gray-800'>
                                 <div className='flex gap-2 items-center'>
                                     {
@@ -164,8 +170,8 @@ export default function Summary() {
                                                     <button
                                                         className={
                                                             `flex flex-col gap-2 text-center 
-                                                        ${perksDisplayed.has(e) ? '' : 'grayscale'} 
-                                                        p-2 border rounded-md border-gray-700`
+                                                        ${perksDisplayed.has(e) ? 'border-yellow-300' : 'grayscale border-gray-700'} 
+                                                        p-2 border rounded-md`
                                                         }
                                                         onClick={
                                                             () => {
@@ -201,8 +207,14 @@ export default function Summary() {
                                 perksDisplayed.size > 0 && (
                                     <div className='
                                 flex items-center flex-col gap-4 p-5 
-                                border rounded-md bg-gray-900 border-orange-400
+                                border rounded-md bg-gray-900 border-yellow-400
                                 '>
+                                        <div className='flex gap-2 items-center justify-center align-middle pb-3'>
+                                            <div className='text-yellow-400'>
+                                                <FaStar />
+                                            </div>
+                                            Most common build items
+                                        </div>
                                         <div className='grid grid-cols-6 gap-2'>
                                             {
                                                 buildOrder
@@ -218,7 +230,7 @@ export default function Summary() {
                                         </div>
                                         <div className='flex gap-5 justify-center'>
                                             <button
-                                                className='p-2 rounded-xl font-black text-lg'
+                                                className='p-2 font-black text-lg border rounded-md'
                                                 onClick={
                                                     () => {
                                                         setBuildItemsDisplayCount(buildItemsDisplayCount + 6);
@@ -229,7 +241,7 @@ export default function Summary() {
                                             {
                                                 buildItemsDisplayCount > 6 && (
                                                     <button
-                                                        className='p-2 rounded-xl font-black text-lg'
+                                                        className='p-2 font-black text-lg border rounded-md'
                                                         onClick={
                                                             () => {
                                                                 setBuildItemsDisplayCount(buildItemsDisplayCount - 6);
@@ -245,7 +257,51 @@ export default function Summary() {
                                 )
                             }
                             {
-                                perksDisplayed.size > 0 && (
+                                !showBuilds && perksDisplayed.size > 0 && (
+                                    <button
+                                        className='
+                                        p-3 rounded-md border 
+                                        border-gray-700 bg-gray-900 
+                                        flex gap-3
+                                        align-middle
+                                        items-center
+                                        justify-center
+                                        '
+                                        onClick={
+                                            () => {
+                                                setShowBuilds(true);
+                                            }
+                                        }
+                                    >
+                                        <BiSolidHide />
+                                        Show build samples
+                                    </button>
+                                )
+                            }
+                            {
+                                showBuilds && perksDisplayed.size > 0 && (
+                                    <button
+                                        className='
+                                        p-3 rounded-md border 
+                                        border-gray-700 bg-gray-900 
+                                        flex gap-3
+                                        align-middle
+                                        items-center
+                                        justify-center
+                                        '
+                                        onClick={
+                                            () => {
+                                                setShowBuilds(false);
+                                            }
+                                        }
+                                    >
+                                        <FaEye />
+                                        Hide build samples
+                                    </button>
+                                )
+                            }
+                            {
+                                perksDisplayed.size > 0 && showBuilds && (
                                     <div className='flex flex-col gap-5 items-center justify-center p-3 border rounded-md bg-gray-900 border-gray-800'>
                                         <div className='flex flex-col lg:grid lg:grid-cols-2 gap-2 items-start align-middle'>
                                             {
