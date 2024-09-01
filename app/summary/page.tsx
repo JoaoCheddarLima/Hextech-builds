@@ -18,6 +18,7 @@ import {
 
 import { CircularProgress } from '@mui/material';
 
+import AppExplanation from '../components/helper';
 import TopNav from '../components/topNav';
 import Routes from '../lib/champion/utils/routes';
 
@@ -145,6 +146,7 @@ export default function Summary() {
     return (
         <div>
             <TopNav />
+            <AppExplanation />
             <div className='flex justify-center gap-2 flex-col align-middle font-mono h-screen'>
                 {
                     !bestPlayerDatas.length && (
