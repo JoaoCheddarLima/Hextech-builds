@@ -46,10 +46,35 @@ export default function TopNav() {
 
     return (
         <div className="w-full flex gap-2 justify-center align-middle items-center p-5 border-b border-gray-700">
-            <div className='grid grid-cols-3 text-center items-center align-middle w-full justify-between'>
+            <div className='flex flex-col gap-5 md:grid md:grid-cols-3 text-center items-center align-middle w-full justify-between'>
+                <div className='flex md:hidden gap-5 align-middle justify-center items-center'>
+                    <Link
+                        href='/'
+                        className='items-center text-2xl md:hidden flex'
+                    >
+                        <Image
+                            src='/logo.png'
+                            alt='logo'
+                            width={64}
+                            height={64}
+                            className='w-12'
+                        />
+                        Hextech
+                    </ Link>
+                    <div className='gap-2 justify-end'>
+                        <a
+                            href='https://github.com/Jay-Frontera'
+                            target='_blank'
+                        >
+                            <ImGithub
+                                className='text-3xl w-12'
+                            />
+                        </a>
+                    </div>
+                </div>
                 <Link
                     href='/'
-                    className='flex items-center text-2xl'
+                    className='items-center text-2xl md:flex hidden'
                 >
                     <Image
                         src='/logo.png'
@@ -70,7 +95,7 @@ export default function TopNav() {
                         }
                     />
                 </form>
-                <div className='flex gap-2 justify-end'>
+                <div className='gap-2 justify-end md:flex hidden'>
                     <a
                         href='https://github.com/Jay-Frontera'
                         target='_blank'

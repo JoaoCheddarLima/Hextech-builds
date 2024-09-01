@@ -309,32 +309,70 @@ export default function Summary() {
                             }
                             {
                                 perksDisplayed.size > 0 && showBuilds && (
-                                    <div className='flex flex-col gap-5 items-center justify-center p-3 border rounded-md bg-gray-900 border-gray-800'>
+                                    <div className='
+                                    flex flex-col gap-5 
+                                    items-center justify-center p-3 
+                                    border rounded-md bg-gray-900 border-gray-800
+                                    '>
                                         <div className='flex flex-col lg:grid lg:grid-cols-2 gap-2 items-start align-middle'>
                                             {
                                                 builds.map((e, i) => {
                                                     if (!perksDisplayed.has(perks[i][2])) return null;
                                                     return (
-                                                        <div className='flex gap-2 border p-5 rounded-md border-gray-700'>
-                                                            <div className='flex pr-3'>
-                                                                <div className='flex items-center'>
+                                                        <div className='
+                                                        flex flex-wrap justify-center md:justify-normal md:flex-nowrap 
+                                                        flex-col md:flex-row 
+                                                        gap-2 border p-5 rounded-md border-gray-700
+                                                        w-full
+                                                        '>
+                                                            <div className='flex pr-3 w-full md:w-6 items-center justify-center'>
+                                                                <div className='flex items-center justify-center sm:p-3 '>
                                                                     {
-                                                                        <img src={`${Routes.runeRoute(perks[i][2])}`} alt={`perk-${perks[i][2]}`} className='w-14' />
+                                                                        <img
+                                                                            src={`${Routes.runeRoute(perks[i][2])}`}
+                                                                            alt={`perk-${perks[i][2]}`}
+                                                                            className='w-16'
+                                                                        />
                                                                     }
                                                                 </div>
-                                                                <div className='flex w-6 items-center flex-col gap-5 justify-center'>
+                                                                <div
+                                                                    className='flex items-center flex-col gap-5 justify-center'
+                                                                >
                                                                     {
-                                                                        <img src={`${Routes.perkRoute(perks[i][0])}`} alt={`perk-${perks[i][0]}`} />
+                                                                        <img
+                                                                            src={`${Routes.perkRoute(perks[i][0])}`}
+                                                                            alt={`perk-${perks[i][0]}`}
+                                                                        />
                                                                     }
                                                                     {
-                                                                        <img src={`${Routes.perkRoute(perks[i][1])}`} alt={`perk-${perks[i][1]}`} />
+                                                                        <img
+                                                                            src={`${Routes.perkRoute(perks[i][1])}`}
+                                                                            alt={`perk-${perks[i][1]}`}
+                                                                        />
                                                                     }
                                                                 </div>
+                                                            </div>
+                                                            <div className='md:hidden flex flex-wrap items-center justify-center gap-2'>
+                                                                {
+                                                                    e.map((e: any, i) => {
+                                                                        return (
+                                                                            <img
+                                                                                src={`${Routes.itemRoute(e)}`}
+                                                                                alt={`item-${e}`}
+                                                                                className='w-16'
+                                                                            />
+                                                                        )
+                                                                    })
+                                                                }
                                                             </div>
                                                             {
                                                                 e.map((e: any, i) => {
                                                                     return (
-                                                                        <img src={`${Routes.itemRoute(e)}`} alt={`item-${e}`} />
+                                                                        <img
+                                                                            src={`${Routes.itemRoute(e)}`}
+                                                                            alt={`item-${e}`}
+                                                                            className='w-16 hidden md:block'
+                                                                        />
                                                                     )
                                                                 })
                                                             }
