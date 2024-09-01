@@ -13,12 +13,12 @@ export async function GET(request: NextRequest) {
 
         const name = url.searchParams.get('champion');
 
-        if (!name) return NextResponse.redirect('/');
+        if (!name) return NextResponse.redirect('#');
 
         const bestPerformers = await getBestChampionData(name);
 
         return NextResponse.json(bestPerformers);
     } catch (err) {
-        return NextResponse.redirect('/');
+        return NextResponse.redirect('#');
     }
 }
