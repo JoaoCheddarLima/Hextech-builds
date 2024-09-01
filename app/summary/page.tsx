@@ -230,30 +230,35 @@ export default function Summary() {
                                                     })
                                             }
                                         </div>
-                                        <div className='flex gap-5 justify-center'>
-                                            <button
-                                                className='p-2 font-black text-lg border rounded-md'
-                                                onClick={
-                                                    () => {
-                                                        setBuildItemsDisplayCount(buildItemsDisplayCount + 6);
-                                                    }
-                                                }>
-                                                <MdExpandMore />
-                                            </button>
-                                            {
-                                                buildItemsDisplayCount > 6 && (
-                                                    <button
-                                                        className='p-2 font-black text-lg border rounded-md'
-                                                        onClick={
-                                                            () => {
-                                                                setBuildItemsDisplayCount(buildItemsDisplayCount - 6);
-                                                            }
+                                        <div className='flex flex-col gap-2'>
+                                            <div className='flex gap-5 justify-center'>
+                                                <button
+                                                    className='p-2 font-black text-lg border rounded-md'
+                                                    onClick={
+                                                        () => {
+                                                            setBuildItemsDisplayCount(buildItemsDisplayCount + 6);
                                                         }
-                                                    >
-                                                        <MdExpandLess />
-                                                    </button>
-                                                )
-                                            }
+                                                    }>
+                                                    <MdExpandMore />
+                                                </button>
+                                                {
+                                                    buildItemsDisplayCount > 6 && (
+                                                        <button
+                                                            className='p-2 font-black text-lg border rounded-md'
+                                                            onClick={
+                                                                () => {
+                                                                    setBuildItemsDisplayCount(buildItemsDisplayCount - 6);
+                                                                }
+                                                            }
+                                                        >
+                                                            <MdExpandLess />
+                                                        </button>
+                                                    )
+                                                }
+                                            </div>
+                                            <p className='text-gray-600 italic text-sm'>
+                                                Show more or less items
+                                            </p>
                                         </div>
                                     </div>
                                 )

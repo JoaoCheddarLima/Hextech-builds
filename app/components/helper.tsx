@@ -13,7 +13,8 @@ export default function AppExplanation() {
             </h1>
             <p className='text-base flex gap-4 w-[60%] text-center text-gray-400 italic'>
                 For hextech
-                the best built is one that is built and tested by the highest ranked players that plays with the specified champion you are looking for.
+                the best build is one that is built and tested by the highest ranked players 
+                that plays with the specified champion you are looking for.
             </p>
         </div>
     );
