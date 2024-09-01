@@ -6,6 +6,7 @@ import {
 } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { ImGithub } from 'react-icons/im';
 
 export default function TopNav() {
@@ -46,7 +47,10 @@ export default function TopNav() {
     return (
         <div className="w-full flex gap-2 justify-center align-middle items-center p-5 border-b border-gray-700">
             <div className='grid grid-cols-3 text-center items-center align-middle w-full justify-between'>
-                <h1 className='flex items-center text-2xl'>
+                <Link
+                    href='/'
+                    className='flex items-center text-2xl'
+                >
                     <Image
                         src='/logo.png'
                         alt='logo'
@@ -55,7 +59,7 @@ export default function TopNav() {
                         className='w-12'
                     />
                     Hextech
-                </h1>
+                </ Link>
                 <form action={handleSearch} method="get">
                     <input type="text" name="account_name" id="account_name" placeholder={examplePlaceHolder} required
                         className='text-black border-2 border-black rounded-lg p-2'

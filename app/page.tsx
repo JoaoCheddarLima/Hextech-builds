@@ -5,6 +5,7 @@ import {
   useState,
 } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -46,9 +47,22 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 font-mono gap-5">
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 font-mono gap-10">
       <div>
-        <h1 className="text-center text-6xl font-bold">Hextech</h1>
+        <h1 className="flex text-center text-6xl font-bold items-center justify-center">
+          <Image
+            src={'/logo.png'}
+            alt='logo'
+            width={72}
+            height={72}
+          />
+          <div className='flex'>
+            HEX
+            <p className='text-orange-500'>
+              TECH
+            </p>
+          </div>
+        </h1>
         <p className="text-center text-sm italic text-[#a8a8a8]">
           See data {accountName ? `for ${accountName}` : ''} with actual meaning
         </p>
