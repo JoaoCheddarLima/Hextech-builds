@@ -11,7 +11,7 @@ export default function AppExplanation() {
             <h1 className='text-4xl flex gap-2'>
                 The <p className="text-yellow-300">BEST</p> build?
             </h1>
-            <p className='text-base flex gap-4 w-[80%] text-center text-gray-400 italic'>
+            <p className='text-base flex gap-4 text-center text-gray-400 italic w-fit max-w-[80%]'>
                 For hextech
                 the best build is one that is built and tested by the highest ranked players 
                 that plays with the specified champion you are looking for.

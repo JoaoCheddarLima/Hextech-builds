@@ -320,13 +320,13 @@ export default function Summary() {
                                                     if (!perksDisplayed.has(perks[i][2])) return null;
                                                     return (
                                                         <div className='
-                                                        flex flex-wrap justify-center md:justify-normal md:flex-nowrap 
-                                                        flex-col md:flex-row 
+                                                        flex flex-wrap justify-center
+                                                        flex-col md:flex-row
                                                         gap-2 border p-5 rounded-md border-gray-700
                                                         w-full
                                                         '>
                                                             <div className='flex pr-3 w-full md:w-6 items-center justify-center'>
-                                                                <div className='flex items-center justify-center sm:p-3 '>
+                                                                <div className='flex items-center justify-center p-3'>
                                                                     {
                                                                         <img
                                                                             src={`${Routes.runeRoute(perks[i][2])}`}
