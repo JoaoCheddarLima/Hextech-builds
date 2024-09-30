@@ -27,7 +27,6 @@ async function getRecentPlayerGames(summoner_id: string, championName: string): 
                 e.myData.stats.champion_temp.key.toLowerCase() == championName.toLowerCase()
         }
     )
-        .splice(0, 10)
 
     return dataFiltered.map(
         (e: any) => {
