@@ -10,7 +10,7 @@ async function getBestChampionPerformers(champion: string): Promise<{
     return {
         championName: champion,
         players: data
-            .slice(0, 10)
+            .slice(0, 50)
             .map((e: any) => {
                 return e.summoner.summoner_id;
             })
