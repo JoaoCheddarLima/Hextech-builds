@@ -1,19 +1,19 @@
 'use client'
 
 import {
-  useEffect,
-  useState,
+    useEffect,
+    useState,
 } from 'react';
 
 import axios from 'axios';
 import { BiSolidHide } from 'react-icons/bi';
 import {
-  FaEye,
-  FaStar,
+    FaEye,
+    FaStar,
 } from 'react-icons/fa';
 import {
-  MdExpandLess,
-  MdExpandMore,
+    MdExpandLess,
+    MdExpandMore,
 } from 'react-icons/md';
 
 import { CircularProgress } from '@mui/material';
@@ -132,15 +132,15 @@ export default function Summary() {
                 setBuilds(builds)
             })
 
-        return () => {
-            setBestPlayerDatas([]);
-            setBuilds([]);
-            setPerks([]);
-            setItemsSetupMap(new Map<number, number>());
-            setBuildOrder([]);
-            setPerksDisplayed(new Set<number>());
-            setPossiblePerksDisplayed(new Set<number>());
-        }
+        // return () => {
+        //     setBestPlayerDatas([]);
+        //     setBuilds([]);
+        //     setPerks([]);
+        //     setItemsSetupMap(new Map<number, number>());
+        //     setBuildOrder([]);
+        //     setPerksDisplayed(new Set<number>());
+        //     setPossiblePerksDisplayed(new Set<number>());
+        // }
     }, [])
 
     return (
@@ -320,18 +320,18 @@ export default function Summary() {
                                                     if (!perksDisplayed.has(perks[i][2])) return null;
                                                     return (
                                                         <div className='
-                                                        flex flex-wrap justify-center
+                                                        flex flex-wrap
                                                         flex-col md:flex-row
                                                         gap-2 border p-5 rounded-md border-gray-700
-                                                        w-full
+                                                        w-full items-center
                                                         '>
-                                                            <div className='flex pr-3 w-full md:w-6 items-center justify-center'>
+                                                            <div className='flex pb-2 md:p-0 pr-3 w-max items-center justify-center'>
                                                                 <div className='flex items-center justify-center p-3'>
                                                                     {
                                                                         <img
                                                                             src={`${Routes.runeRoute(perks[i][2])}`}
                                                                             alt={`perk-${perks[i][2]}`}
-                                                                            className='w-16'
+                                                                            className='w-16 aspect-square'
                                                                         />
                                                                     }
                                                                 </div>
@@ -342,12 +342,14 @@ export default function Summary() {
                                                                         <img
                                                                             src={`${Routes.perkRoute(perks[i][0])}`}
                                                                             alt={`perk-${perks[i][0]}`}
+                                                                            className='aspect-square'
                                                                         />
                                                                     }
                                                                     {
                                                                         <img
                                                                             src={`${Routes.perkRoute(perks[i][1])}`}
                                                                             alt={`perk-${perks[i][1]}`}
+                                                                            className='aspect-square'
                                                                         />
                                                                     }
                                                                 </div>
@@ -360,6 +362,7 @@ export default function Summary() {
                                                                                 src={`${Routes.itemRoute(e)}`}
                                                                                 alt={`item-${e}`}
                                                                                 className='w-16'
+                                                                                    
                                                                             />
                                                                         )
                                                                     })
@@ -371,7 +374,7 @@ export default function Summary() {
                                                                         <img
                                                                             src={`${Routes.itemRoute(e)}`}
                                                                             alt={`item-${e}`}
-                                                                            className='w-16 hidden md:block'
+                                                                            className='w-16 h-max aspect-square hidden md:flex items-center'
                                                                         />
                                                                     )
                                                                 })
